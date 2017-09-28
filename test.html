@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Tableau responsive</title>
+		<style>
+
+table {
+	background:#666;
+	border-collapse:collapse;
+	width:100%;
+}
+th {
+	color:white;
+}
+th, td {
+	text-align:center;
+	padding:5px;
+	border-right:1px solid black;
+}
+th:last-child, td:last-child {
+	border-right:0;
+}
+tbody tr:nth-child(odd) {
+	background:#ccc;
+}
+tbody tr:nth-child(even) {
+	background:#aaa;
+}
+@media screen and (max-width:800px) {
+	table {
+		display:flex;
+	}
+	thead {
+		width:20%;
+		min-width:90px;
+	}
+	tbody {
+		flex:1;
+	}
+	tr {
+		display:flex;
+		flex-direction:column;
+	}
+	th, td {
+		text-align:left;
+		border-right:0;
+		border-bottom:1px solid black;
+	}
+	tr:last-child td:last-child {
+		border-bottom:0;
+	}
+	tbody tr:not(:first-child) td::before {
+		position:absolute;
+		content:'Pseudo';
+		color:white;
+		font-weight:bold;
+		width:calc(20% - 13px);
+		min-width:90px;
+		padding:5px;
+		border-bottom:1px solid black;
+		margin-left:calc(-20% - 2px);
+		margin-top:-5px;
+	}
+	tbody tr:last-child td:last-child::before {
+		border-bottom:0;
+	}
+	tbody tr:not(:first-child) td:nth-of-type(2)::before {
+		content:'Age';
+	}
+	tbody tr:not(:first-child) td:nth-of-type(3)::before {
+		content:'Classement';
+	}
+
+}
+@media screen and (max-width:461px) {
+	tbody tr:not(:first-child) td::before {
+		margin-left:-95px;
+	}
+}
+		</style>
+	</head>
+	<body>
+
+<table summary="Tableau des membres" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<th>Pseudo</th>
+			<th>Age</th>
+			<th>Classement</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><input type="texte" id="rem7" name="rem7"></td>
+			<td>24</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>Fifi</td>
+			<td>19</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>Loulou</td>
+			<td>39</td>
+			<td>1</td>
+		</tr>
+	</tbody>
+</table>
+
+	</body>
+</html>
